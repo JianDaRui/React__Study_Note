@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件处理</title>
+  <script type="text/javascript" src="../js/react.development.js"></script>
+  <script type="text/javascript" src="../js/react-dom.development.js"></script>
+  <!-- 用于对组件标签属性进行限制 -->
+  <script type="text/javascript" src="../js/prop-types.js"></script>
+  <script type="text/javascript" src="../js/babel.min.js"></script>
+</head>
+<body>
+  <div id="text1"></div>
+  <script type="text/babel">
+    // 1. 通过onXXX属性指定事件处理函数(注意大小写)
+    //    a.React使用的是自定义合成事件，而不是使用原生的DOM事件———— 为了更好的兼容性
+    //    b.React中的事件是通过委托方式处理的(委托给组件最外层的元素)————为了高效
+    // 2. 通过event.target得到发生事件的DOM元素对象———— 不要过度使用 refs 
+    
+    // 创建类组件
+    class Demo extends React.Component{
+      constructor(params) {
+        super(params)
+        this.state = {}
+      }
+      showData = () => {
+        const { input1 } = this.refs
+        alert(input1.value)
+      }
+      showData2 = (e) => {
+        alert(e.target.value)
+      }
+      render() {
+        return (
+          <div>
+            <input ref="input1" type="text" placeholder="点击按钮提示数据" /> &nbsp;
+            <button ref="button" onClick={ this.showData }>点击我提示左侧的数据</button> &nbsp;
+            <input ref="input2" onBlur={ this.showData2 } type="text" placeholder="失去焦点提示信息"  />
+          </div>
+        )
+      }
+    }
+    // 渲染类组件
+    ReactDOM.render(<Demo  />, document.getElementById('text1'))
+  </script>
+</body>
+
+</html>

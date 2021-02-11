@@ -2,5 +2,7 @@
 
 ## state
 
+- 更新状态必须使用this.setState({})
+- 
 
 

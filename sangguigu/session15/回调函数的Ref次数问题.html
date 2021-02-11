@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>回调函数形式的Ref ==== CreateRef的Ref</title>
+  <script type="text/javascript" src="../js/react.development.js"></script>
+  <script type="text/javascript" src="../js/react-dom.development.js"></script>
+  <!-- 用于对组件标签属性进行限制 -->
+  <script type="text/javascript" src="../js/prop-types.js"></script>
+  <script type="text/javascript" src="../js/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="text1"></div>
+  <script type="text/babel">
+    // ref的使用
+    // 字符串类型的 Ref 会影响效率 问题
+    class Demo extends React.Component {
+      constructor(params) {
+        super(params)
+        this.state = {
+          isHot: false,
+        }
+      }
+      showData = () => {
+        // console.log(this)
+        const { input1 } = this
+        alert(input1.value)
+      }
+      saveInput = (c) => {
+        this.input1 = c;
+        console.log("@", c);
+      }
+      changWeather = () => {
+        this.setState({
+          isHot: !this.state.isHot,
+        })
+      }
+      render() {
+        const { isHot } = this.state
+        return (
+          // 页面初次渲染的时候会调用ref的回调函数
+          // 在更新state 时，会调用两次 ref 的回调函数, 第一次 回传null, 第二次回传当前节点
+          // 每次调用的时候都会创建一个新的回调函数
+          // 形式三种
+          // 1. 字符串
+          // 2. 回调函数
+          // 3. 类方法直接绑定
+          <div>
+            <h1>今天天气真不错：{isHot ? '凉爽' : '炎热'}</h1>
+            {
+              // 存在多次调用的问题
+              // <input ref={currentNode => {this.input1 = currentNode;console.log("@", currentNode)}} type="text" placeholder="点击按钮提示数据" />
+            
+              <input ref={this.saveInput} type="text" placeholder="点击按钮提示数据" />
+            }
+            
+            <button ref={(c) => { this.button = c }} onClick={this.showData}>点击我提示左侧的数据</button>
+            <button onClick={this.changWeather}>切换天气</button>
+          </div>
+        )
+      }
+    }
+    // 渲染类组件
+    ReactDOM.render(<Demo />, document.getElementById('text1'))
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>受控组件与非受控组件</title>
+  <script type="text/javascript" src="../js/react.development.js"></script>
+  <script type="text/javascript" src="../js/react-dom.development.js"></script>
+  <!-- 用于对组件标签属性进行限制 -->
+  <script type="text/javascript" src="../js/prop-types.js"></script>
+  <script type="text/javascript" src="../js/babel.min.js"></script>
+</head>
+<body>
+  <div id="text1"></div>
+  <script type="text/babel">
+    // 受控组件
+    // 从输入的状态中获取state
+    // 能够省略 Ref 
+    class Login extends React.Component{
+      constructor(params) {
+        super(params)
+        this.state = {
+          name: 1,
+          password: 18
+        }
+      }
+      demo = (e) => {
+        console.log(e.target.value) 
+        this.setState({
+          name: e.target.value
+        })
+      }
+      demo2 = (e) => {
+        console.log(e.target.value) 
+        this.setState({
+          password: e.target.value
+        })
+      }
+      render() {
+        return (
+          <form action="#javascript" onSubmit={this.handleSubmit}> 
+            用户名：<input onChange={this.demo}  type="text" name="username" placeholder="输入用户名" /> &nbsp;
+            密码：<input onChange={this.demo2} type="password" name="password" placeholder="输入密码"  />
+            <button>登录</button>
+            </form>
+        )
+      }
+    }
+    ReactDOM.render(<Login  />, document.getElementById('text1'))
+  </script>
+</body>
+
+</html>
