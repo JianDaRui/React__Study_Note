@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>生命周期</title>
+  <script type="text/javascript" src="../js/react.development.js"></script>
+  <script type="text/javascript" src="../js/react-dom.development.js"></script>
+  <!-- 用于对组件标签属性进行限制 -->
+  <script type="text/javascript" src="../js/prop-types.js"></script>
+  <script type="text/javascript" src="../js/babel.min.js"></script>
+</head>
+<body>
+  <div id="text1"></div>
+  <script type="text/babel">
+    // 非受控组件
+    // 现用现去
+    // 所有的表单类 
+    class LifeHOOK extends React.Component{
+      constructor(params) {
+        super(params)
+        this.state = {}
+      }
+      render() {
+        return (
+          <div>
+            <div>学不会救不活了</div>
+            <button>干掉</button>
+          </div>
+        )
+      }
+    }
+    ReactDOM.render(<LifeHOOK  />, document.getElementById('text1'))
+  </script>
+</body>
+
+</html>
