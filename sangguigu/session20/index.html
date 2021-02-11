@@ -18,40 +18,46 @@
     // 非受控组件
     // 现用现去
     // 所有的表单类 
-    class LifeHook extends React.Component{
+    class Count extends React.Component{
       constructor(params) {
         super(params)
+        console.log('挂载时===constructor')
         this.state = {
-          opacity: 1
+          count: 1
         }
       }
-      // 组件挂载完毕
+      add = () => { 
+        let { count } = this.state
+        count++
+        this.setState({
+          count: count++
+        })
+      }
+      componentWillMount() {
+        console.log("count---componentWillMount")
+      }
       componentDidMount() {
-        
-        this.timer = setInterval(() => {
-          this.setState({
-            opacity: this.state.opacity > 0  ? this.state.opacity -= 0.1 : this.state.opacity
-          })
-        }, 100)
+        console.log("count---componentDidMount")
+      }
+      componentWillUnMount() {
+        console.log("count---componentWillUnMount")
       }
       death = () => {
-        
         ReactDOM.unmountComponentAtNode(document.getElementById('text'))
       }
-      // 组件将要卸载
-      componentWillUnmount() {
-        clearInterval(this.timer)
-      }
       render() {
+        console.log("count---render")
+        let { count } = this.state
         return (
-          <div onClick={ this.death }>
-            <h1 style={{ opacity: this.state.opacity }}>学不会救不活了</h1>
-            <button>干掉</button>
+          <div>
+            <h1>{ count }</h1>
+            <button onClick={ this.add }>ADD</button>
+            <button onClick={ this.death }>Unmount</button>
           </div>
         )
       }
     }
-    ReactDOM.render(<LifeHook />, document.getElementById('text'))
+    ReactDOM.render(<Count />, document.getElementById('text'))
   </script>
 </body>
 
