@@ -10,7 +10,7 @@
 ## 父组件render
 
 - componetWillReceiveProps
-- shouldComonentUpdate
+- shouldComonentUpdate：判断组件是否需要更新
 - componentWillUpdate
 - render
 - componentDidUpdate
@@ -24,7 +24,7 @@
 - componentDidUpdate
 - componentWillUnmount
 
-## forceUpdate
+## forceUpdate 强制更新
 
 - componentWillUpdate
 - render

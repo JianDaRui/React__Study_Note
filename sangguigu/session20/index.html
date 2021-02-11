@@ -42,6 +42,15 @@
       componentWillUnMount() {
         console.log("count---componentWillUnMount")
       }
+      // 判断组件是否需要更新
+      shouldComponentUpdate() {
+        console.log("shouldComponentUpdate")
+        return true
+      }
+      // 组件将要更新
+      componentWillUpdate() {
+        console.log("componentWillUpdate")
+      }
       death = () => {
         ReactDOM.unmountComponentAtNode(document.getElementById('text'))
       }
