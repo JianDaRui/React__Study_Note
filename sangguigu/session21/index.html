@@ -41,11 +41,19 @@
         return { count: 100 }
       }
       // 位于Render之后
+      // 在更新前获取一个 快照
+      // getSnapshotBeforeUpdate() 在最近一次渲染输出（提交到 DOM 节点）之前调用。
+      // 它使得组件能在发生更改之前从 DOM 中捕获一些信息（例如，滚动位置）。
+      // 此生命周期的任何返回值将作为参数传递给 componentDidUpdate()。
       getSnapshotBeforeUpdate() {
         console.log('getSnapshotBeforeUpdate')
+        return null;
       }
       componentDidMount() {
         console.log("count --- componentDidMount")
+      }
+      componentDidUpdate(preProps, preState) {
+        console.log("count --- componentDidMount", preProps, preState)
       }
       componentWillUnMount() {
         console.log("count --- componentWillUnMount")
