@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './index.css'
 export default class Item extends Component {
   // eslint-disable-next-line no-useless-constructor
@@ -8,6 +9,11 @@ export default class Item extends Component {
       mouse: false
     }
   }
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    done: PropTypes.bool.isRequired,
+  }
+
   handleMouse = (flag) => {
     return () => {
       this.setState({
@@ -23,6 +29,14 @@ export default class Item extends Component {
       updateToDo(id, e.target.checked)
     }
   }
+  handleDelete = (id) => {
+    console.log(id)
+    if(window.confirm('Are you sure ?')) {
+      this.props.deleteTodo(id)
+    }
+    
+  }
+
   render() {
     const { name, done, id } = this.props;
     const { mouse } = this.state
@@ -36,7 +50,7 @@ export default class Item extends Component {
           <input type="checkbox" defaultChecked={ done } onChange={this.handleCheck(id)} />
           <span>{ name }</span>
         </label>
-        <button className="btn btn-danger" style={{ display: mouse ? 'inline-block' :'none' }}>删除</button>
+        <button onClick={() => { this.handleDelete(id) }} className="btn btn-danger" style={{ display: mouse ? 'inline-block' :'none' }}>删除</button>
       </li>
     )
   }

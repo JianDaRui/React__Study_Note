@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { nanoid } from 'nanoid'
-
 import './index.css'
 export default class Header extends Component {
+  
   handleKeyUp = (e) => {
     const { keyCode, target } = e
     if(keyCode !== 13) return

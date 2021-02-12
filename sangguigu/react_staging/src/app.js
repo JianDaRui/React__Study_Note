@@ -38,13 +38,22 @@ class App extends Component{
       todos: newTodo
     })
   }
+  deleteTodo = (id) => {
+    const { todos } = this.state
+    let newTodo = todos.filter(item => {
+      return item.id !== id
+    })
+    this.setState({
+      todos: newTodo
+    })
+  }
   render() {
     const { todos } = this.state
     return (
       <div className="todo-container">
         <div className="todo-wrap">
           <Header addTodo={ this.addTodo } />
-          <List todos={ todos } updateToDo={ this.updateToDo } />
+          <List todos={ todos } updateToDo={ this.updateToDo } deleteTodo={this.deleteTodo}/>
           <Footer />
         </div>
       </div>
