@@ -3,7 +3,7 @@
 ## 挂载时
 - constructor
 - getDerivedStateFromProps
-- render
+- **render**
 - React更新DOM和refs
 - **componentDidMount**
   - 常用钩子
@@ -18,14 +18,14 @@ new Props、 setState、 forceUpdate 触发
 
 - getDerivedStateFromProps：子组件接受props时触发，初次传递props不回触发
 - shouldComonentUpdate：判断组件是否需要更新
-- render
+- **render**
 - getSnapshotBeforeUpdate
 - React更新DOM和refs
 - componentDidUpdate
 
 ## 卸载时
 
-- componentWillUnmount
+- **componentWillUnmount**
 
 ### 总结
 
