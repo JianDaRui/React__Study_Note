@@ -6,13 +6,14 @@ export default class List extends Component {
     super(props)
   }
   render() {
-    const { todos } = this.props
+    const { todos, updateToDo } = this.props
+
     return (
       <ul className="todo-main">
         {
           todos.map(item => {
             return (
-              <Item { ...item } key ={item.id} />
+              <Item { ...item } key ={item.id} updateToDo = { updateToDo } />
             )
           })
         }

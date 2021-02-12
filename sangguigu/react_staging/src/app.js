@@ -25,13 +25,26 @@ class App extends Component{
       todos: [todoObj, ...todos]
     })
   }
+  updateToDo = (id, done) => {
+    const { todos } = this.state
+    let newTodo = todos.map(todoObj => {
+      if(todoObj.id === id) {
+        return { ...todoObj, done }
+      } else {
+        return todoObj
+      }
+    })
+    this.setState({
+      todos: newTodo
+    })
+  }
   render() {
     const { todos } = this.state
     return (
       <div className="todo-container">
         <div className="todo-wrap">
-          <Header addTodo={this.addTodo} />
-          <List todos={ todos }/>
+          <Header addTodo={ this.addTodo } />
+          <List todos={ todos } updateToDo={ this.updateToDo } />
           <Footer />
         </div>
       </div>
