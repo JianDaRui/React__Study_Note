@@ -9,8 +9,8 @@ export default class Search extends Component {
     
     const { keyWordElement: {value} } = this;
     PubSub.publish('state', { isFirst: false, isLoading: true })
-    axios.get(`/api1/search/users2?q=${value}`).then(
-      success => {
+    axios.get(`/api1/search/users?q=${value}`).then(
+      success => { 
         console.log('success', success) 
         PubSub.publish('state', { isLoading: false, users: success.data.items })
       },
