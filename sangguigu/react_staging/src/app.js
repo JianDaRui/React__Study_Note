@@ -1,18 +1,40 @@
 
 import React, { Component } from 'react';
 
+// import TODOList from './TODOList'
+import './app.css'
+import Header from './components/Header/Header';
+import List from './components/List/List';
+import Footer from './components/Footer/Footer';
 class App extends Component{
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      todos:[
+        {id: '001', name: '吃饭', done: false},
+        {id: '002', name: '工作', done: false},
+        {id: '003', name: '学习', done: true},
+        {id: '004', name: '锻炼', done: false},
+      ]
+    }
+  }
+  addTodo = (todoObj) => {
+    let { todos } = this.state
+    console.log(todoObj, '-----')
+    this.setState({
+      todos: [todoObj, ...todos]
+    })
   }
   render() {
+    const { todos } = this.state
     return (
-    <div>
-      <h1>
-        App........
-      </h1>
-    </div>
+      <div className="todo-container">
+        <div className="todo-wrap">
+          <Header addTodo={this.addTodo} />
+          <List todos={ todos }/>
+          <Footer />
+        </div>
+      </div>
     )
   }
 }

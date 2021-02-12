@@ -1,0 +1,35 @@
+import React, { Component } from 'react'
+import './index.css'
+export default class Item extends Component {
+  // eslint-disable-next-line no-useless-constructor
+  constructor(props) {
+    super(props);
+    this.state = {
+      mouse: false
+    }
+  }
+  handleMouse = (flag) => {
+    return () => {
+      this.setState({
+        mouse: flag
+      })
+    }
+  }
+  render() {
+    const { name, done } = this.props;
+    const { mouse } = this.state
+    return (
+      <li 
+        style={{backgroundColor: mouse ? '#add' : '#fff'}} 
+        nMouseEnter={this.handleMouse(true)} 
+        onMouseLeave={this.handleMouse(false)} 
+        >
+        <label>
+          <input type="checkbox" defaultChecked={ done }/>
+          <span>{ name }</span>
+        </label>
+        <button className="btn btn-danger" style={{ display: mouse ? 'inline-block' :'none' }}>删除</button>
+      </li>
+    )
+  }
+}
