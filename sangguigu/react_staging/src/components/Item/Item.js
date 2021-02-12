@@ -30,7 +30,6 @@ export default class Item extends Component {
     }
   }
   handleDelete = (id) => {
-    console.log(id)
     if(window.confirm('Are you sure ?')) {
       this.props.deleteTodo(id)
     }
@@ -46,7 +45,7 @@ export default class Item extends Component {
         onMouseLeave={this.handleMouse(false)} 
         >
         <label>
-          <input type="checkbox" defaultChecked={ done } onChange={this.handleCheck(id)} />
+          <input type="checkbox" checked={ done } onChange={this.handleCheck(id)} />
           <span>{ name }</span>
         </label>
         <button onClick={() => { this.handleDelete(id) }} className="btn btn-danger" style={{ display: mouse ? 'inline-block' :'none' }}>删除</button>
