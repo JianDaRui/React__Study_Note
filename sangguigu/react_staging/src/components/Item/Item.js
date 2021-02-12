@@ -34,7 +34,6 @@ export default class Item extends Component {
     if(window.confirm('Are you sure ?')) {
       this.props.deleteTodo(id)
     }
-    
   }
 
   render() {
