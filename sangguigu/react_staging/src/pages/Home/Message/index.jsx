@@ -26,7 +26,7 @@ export default class Message extends Component {
                   {/* 向路由组件传递search参数 */}
                   {/* <Link to={`/home/message/detail/?id=${item.id}&title=${item.title}`}>{ item.title } </Link>&nbsp;&nbsp; */}
                   {/* 向路由组件传递state参数 */}
-                  <Link to={{pathname:`/home/message/detail`, state: { id:item.id, title: item.title }}}>{ item.title } </Link>&nbsp;&nbsp;
+                  <Link replace to={{pathname:`/home/message/detail`, state: { id:item.id, title: item.title }}}>{ item.title } </Link>&nbsp;&nbsp;
                 </li>
               )
             })

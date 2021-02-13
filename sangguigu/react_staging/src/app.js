@@ -29,12 +29,14 @@ export default class App extends Component {
               */
               }
                 <MyNavLink 
+                  replace
                   to="/about" 
                   activeClassName="active" 
                   className="list-group-item">
                   About
                 </MyNavLink>
                 <MyNavLink 
+                  replace
                   to="/home"
                   activeClassName="active" 
                   className="list-group-item">
