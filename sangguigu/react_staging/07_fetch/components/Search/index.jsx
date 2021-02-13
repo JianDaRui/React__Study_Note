@@ -39,7 +39,7 @@ export default class Search extends Component {
     // })
 
     try {
-			const response= await fetch(`/api1/search/users2?q=${keyWord}`)
+			const response= await fetch(`/api1/search/users2?q=${value}`)
 			const data = await response.json()
 			console.log(data);
 			PubSub.publish('atguigu',{isLoading:false,users:data.items})
