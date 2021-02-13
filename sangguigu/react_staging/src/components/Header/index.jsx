@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-
-export default class Header extends Component {
+import { withRouter } from 'react-router-dom';
+class Header extends Component {
+  // withRouter解决在一般组件中使用路由API的问题
+  
   render() {
+    console.log(this.props)
     return (
       <div className="page-header">
         <h2>React Router Demo</h2>
@@ -9,3 +12,4 @@ export default class Header extends Component {
     )
   }
 }
+export default withRouter(Header)
