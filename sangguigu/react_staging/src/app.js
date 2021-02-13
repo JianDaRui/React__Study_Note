@@ -52,9 +52,12 @@ export default class App extends Component {
                   path---component是一一对应的关系
                   Switch 可以提高路由匹配的效率————单一匹配
                 */}
+                {/* 
+                  exact开启严格匹配
+                */}
                 <Switch>
                   <Route path="/about" component={About}></Route>
-                  <Route path="/home" component={Home}></Route>
+                  <Route exact={ true } path="/home" component={Home}></Route>
                 </Switch>
               </div>
             </div>
