@@ -47,6 +47,11 @@ export default class App extends Component {
             <div className="panel">
               <div className="panel-body">
                 {/* 注册路由 */}
+                {/* 
+                  Switch 匹配成功即不再继续往下匹配--高效
+                  path---component是一一对应的关系
+                  Switch 可以提高路由匹配的效率————单一匹配
+                */}
                 <Switch>
                   <Route path="/about" component={About}></Route>
                   <Route path="/home" component={Home}></Route>
