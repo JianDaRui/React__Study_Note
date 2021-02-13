@@ -1,6 +1,6 @@
 // 该文件用于创建reducer
 // 接受两个状态一个preState, action
-import {DECREMENT, INCREMENT} from './constant'
+import {DECREMENT, INCREMENT} from '../../src/redux/constant'
 const initState = 0;
 function countReducer(preState = initState, action) {
   const {

@@ -1,5 +1,6 @@
 // 该文件用于创建reducer
 // 接受两个状态一个preState, action
+import {DECREMENT, INCREMENT} from './constant'
 const initState = 0;
 function countReducer(preState = initState, action) {
   const {
@@ -7,9 +8,9 @@ function countReducer(preState = initState, action) {
     data
   } = action
   switch (type) {
-    case 'increment':
+    case INCREMENT:
       return preState + data;
-    case 'decrement':
+    case DECREMENT:
       return preState - data;
     default:
       return preState;
