@@ -1,10 +1,10 @@
 
 import React, { Component } from 'react'
-import { Link, Route, NavLink } from 'react-router-dom'
+import { Route, NavLink } from 'react-router-dom'
 import About from './pages/About/index'
 import Home from './pages/Home/index'
 import Header from './components/Header/index'
-
+import MyNavLink from './components/MyNavLink/index.jsx'
 export default class App extends Component {
   constructor() {
     super()
@@ -28,8 +28,19 @@ export default class App extends Component {
                 <a className="list-group-item active" href="./home.html">Home</a> 
               */
               }
-                <NavLink to="./about" activeClassName="active" className="list-group-item">About</NavLink>
-                <NavLink to="./home" activeClassName="active" className="list-group-item">Home</NavLink>
+                <MyNavLink 
+                  to="./about" 
+                  activeClassName="active" 
+                  className="list-group-item">
+                  About
+                </MyNavLink>
+                <MyNavLink 
+                  to="./home"
+                  activeClassName="active" 
+                  className="list-group-item">
+                    Home
+                </MyNavLink>
+            
             </div>
           </div>
           <div className="col-xs-6">
