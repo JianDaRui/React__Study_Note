@@ -29,13 +29,13 @@ export default class App extends Component {
               */
               }
                 <MyNavLink 
-                  to="./about" 
+                  to="/about" 
                   activeClassName="active" 
                   className="list-group-item">
                   About
                 </MyNavLink>
                 <MyNavLink 
-                  to="./home"
+                  to="/home"
                   activeClassName="active" 
                   className="list-group-item">
                     Home
@@ -57,12 +57,12 @@ export default class App extends Component {
                 */}
                 <Switch>
                   <Route path="/about" component={About}></Route>
-                  <Route exact={ true } path="/home" component={Home}></Route>
+                  <Route path="/home" component={Home}></Route>
                   {/* 
                     路由重定向 
                     一般写在所有路由注册的最下方， 当所有路由都无法匹配时，跳转到Redirect指定的路由
                   */}
-                  <Redirect to="about"></Redirect>
+                  <Redirect to="/about"></Redirect>
                 </Switch>
               </div>
             </div>
