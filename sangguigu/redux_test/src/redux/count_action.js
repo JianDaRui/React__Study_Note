@@ -1,4 +1,4 @@
-import store from './store'
+// import store from './store'
 import {
   DECREMENT,
   INCREMENT
@@ -19,9 +19,9 @@ export function createDecrementAction(data) {
 }
 // 所谓的异步Action 就是指action的值为函数
 export const createIncrementAsyncAction = (data, wait = 300) => {
-  return () => {
+  return (disptach) => {
     setTimeout(() => {
-      store.disptach(createIncrementAction(data))
+      disptach(createIncrementAction(data))
     },wait)
   }
   
