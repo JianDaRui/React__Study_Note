@@ -2,7 +2,7 @@
 
 ### setState更新状态的2种写法
 
-```
+```markdown
 	(1). setState(stateChange, [callback])------对象式的setState
             1.stateChange为状态改变对象(该对象可以体现出状态的更改)
             2.callback是可选的回调函数, 它在状态更新完毕、界面也更新后(render调用后)才被调用
@@ -35,6 +35,7 @@
 	const Login = lazy(()=>import('@/pages/Login'))
 	
 	//2.通过<Suspense>指定在加载得到路由打包文件前显示一个自定义loading界面
+    // Suspense 悬念 
 	<Suspense fallback={<h1>loading.....</h1>}>
         <Switch>
             <Route path="/xxx" component={Xxxx}/>

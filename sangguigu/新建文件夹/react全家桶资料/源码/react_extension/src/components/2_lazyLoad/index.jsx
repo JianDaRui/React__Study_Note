@@ -1,4 +1,4 @@
-import React, { Component,lazy,Suspense} from 'react'
+import React, { Component, lazy, Suspense } from 'react'
 import {NavLink,Route} from 'react-router-dom'
 
 // import Home from './Home'

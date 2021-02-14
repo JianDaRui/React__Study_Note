@@ -7,6 +7,7 @@ export default class App extends Component {
 			<div>
 				<Count/>
 				<hr />
+				Demo
 				<Person />
 			</div>
 		)
