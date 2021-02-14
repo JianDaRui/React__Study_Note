@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import nanoid from 'nanoid'
+import {nanoid} from 'nanoid'
 import {connect} from 'react-redux'
-
+import { createAddPersonAction } from '../../redux/actions/person'
 
 class Person extends Component {
   constructor(props) {
@@ -12,27 +12,48 @@ class Person extends Component {
     const name = this.name.value;
     const age = this.age.value;
     const person = {id: nanoid(), name: name, age: age};
-    // this.props.
+    console.log(person, this.props)
+    this.props.addPerson(person)
   }
   render() {
+    const {person} = this.props
     return (
       <div>
         <h1>我是Person组件</h1>
         <input ref={c => this.name = c} type="text" placeholder="请输入姓名" />
         <input ref={c => this.age = c} type="text" placeholder="请输入年龄" />
-        <input onClick={this.addPerson} type="button" placeholder="按钮" />
+        <button onClick={this.addPerson}>添加人</button>
         <ul>
-          <li>姓名————年龄</li>
-          <li>姓名————年龄</li>
-          <li>姓名————年龄</li>
+          {
+            person.map(p => {
+              return (
+                <li key={p.id}>{p.name}————{p.age}</li>
+              )
+            })
+          }
         </ul>
       </div>
     )
   }
 }
 
-const mapStateToProps = () =>{
-
+const mapStateToProps = (state) =>{
+  return {
+    person: state.person
+  }
 }
-const mapDispatchToProps = () => {}
-export default connect( mapStateToProps, mapDispatchToProps)(Person)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addPerson: (person) => dispatch(createAddPersonAction(person))
+  }
+}
+// 第一种方式
+
+// export default connect( mapStateToProps, mapDispatchToProps)(Person)
+
+// 第二种方式
+export default connect( state =>({
+  person: state.person
+}), {
+  addPerson: createAddPersonAction
+})(Person)

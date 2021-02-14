@@ -56,7 +56,7 @@ class Count extends Component {
 	}
 }
 
-export default connect(state => ({count: state}), {
+export default connect(state => ({count: state.count}), {
 	jia: createIncrementAction,
 	jian: createDecrementAction,
 	jiaAsync:createIncrementAsyncAction,
