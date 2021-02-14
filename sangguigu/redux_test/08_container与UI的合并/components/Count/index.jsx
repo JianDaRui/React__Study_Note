@@ -1,15 +1,6 @@
-//引入action
-import {
-	createIncrementAction,
-	createDecrementAction,
-	createIncrementAsyncAction
-} from '../../redux/count_action'
-
-import {connect} from 'react-redux'
-
 import React, { Component } from 'react'
 
-class Count extends Component {
+export default class Count extends Component {
 
 	state = {carName:'奔驰c63'}
 
@@ -54,10 +45,3 @@ class Count extends Component {
 		)
 	}
 }
-
-export default connect(state => ({count: state}), {
-	jia: createIncrementAction,
-	jian: createDecrementAction,
-	jiaAsync:createIncrementAsyncAction,
-})(Count)
-
