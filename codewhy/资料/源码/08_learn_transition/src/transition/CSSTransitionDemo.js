@@ -32,7 +32,7 @@ export default class CSSTransitionDemo extends PureComponent {
                        onExit={el => console.log("开始退出")}
                        onExiting={el => console.log("退出状态")}
                        onExited={el => console.log("退出完成")}
-                       >
+                         >
           <Card
             style={{ width: 300 }}
             cover={

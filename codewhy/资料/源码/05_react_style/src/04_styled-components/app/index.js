@@ -25,7 +25,7 @@ const HYPrimaryButton = styled(HYButton)`
 export default class App extends PureComponent {
   render() {
     return (
-      <ThemeProvider theme={{themeColor: "red", fontSize: "30px"}}>
+      <ThemeProvider theme={{themeColor: "orange", fontSize: "30px"}}>
         <Home />
         <hr />
         <Profile />

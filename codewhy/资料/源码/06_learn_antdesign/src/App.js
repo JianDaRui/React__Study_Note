@@ -8,7 +8,6 @@ import { PoweroffOutlined } from '@ant-design/icons';
 
 import HYHomeRecommend from './components/home/childCpns/home-recommend';
 
-
 export default class App extends PureComponent {
   render() {
     const loadings = true;

@@ -1,10 +1,12 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { PureComponent, StrictMode } from 'react'
 
 class Demo extends PureComponent {
+  UNSAFE_componentWillMount() {
+    // 不安全的生命周期
+  }
   render() {
     return (
-      /* 短语法 */
-      // 如果遍历时 添加key属性 短语法不可以添加任何属性
+      
       <>
         <div>
           Fragment
@@ -16,22 +18,27 @@ class Demo extends PureComponent {
     )
   }
 }
-// Fragment 可以解决 只有一个跟标签的问题
 export default class App extends PureComponent {
   render() {
     return (
-      <Fragment>
+      // 识别不安全的生命周期
+      // 识别即将废弃的API
+      // ref的字符串API
+      // 检查意外的副作用
+      // constructor 会被调用两次的情况
+      // 检测过时的 context API
+      <StrictMode>
         <Demo />
         <div>
           Fragment
         </div>
-        <div>
+        <div ref="fragment">
           Fragment
         </div>
         <div>
           Fragment
         </div>
-      </Fragment>
+      </StrictMode>
     )
   }
 }
