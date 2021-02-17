@@ -15,9 +15,9 @@ export default class App extends Component {
           <a href="/#">ccc</a>
         </NavBar>
 
-        <NavBar2 leftSlot={leftJsx}
-                 centerSlot={<strong>bbb</strong>}
-                 rightSlot={<a href="/#">ccc</a>}/>
+        <NavBar2 leftSlot={ leftJsx }
+                centerSlot={ <strong>bbb</strong> }
+                rightSlot={ <a href="/#">ccc</a> }/>
       </div>
     )
   }

@@ -26,13 +26,11 @@ export default class App extends Component {
       })
       console.log(this.state.message);
     })
-
     // this.setState({
     //   message: "你好啊,李银河"
     // })
     // console.log(this.state.message);
   }
-
   changeText() {
     // 情况一: 将setState放入到定时器中
     setTimeout(() => {
