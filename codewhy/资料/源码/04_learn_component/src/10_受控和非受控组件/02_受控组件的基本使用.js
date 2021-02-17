@@ -17,9 +17,9 @@ export default class App extends PureComponent {
             用户: 
             {/* 受控组件 */}
             <input type="text" 
-                   id="username" 
-                   onChange={e => this.handleChange(e)}
-                   value={this.state.username}/>
+                  id="username" 
+                  onChange={e => this.handleChange(e)}
+                  value={this.state.username}/>
           </label>
           <input type="submit" value="提交"/>
         </form>
