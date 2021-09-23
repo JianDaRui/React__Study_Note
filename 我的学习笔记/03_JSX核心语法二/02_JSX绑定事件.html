@@ -32,6 +32,9 @@
       btnClick2 = (e) => {
         console.log(e)
       }
+      btnClick3 = (e) => {
+        console.log(e)
+      }
       render() {
         const { title, imgUrl } = this.state;
         return (
@@ -41,7 +44,7 @@
             {/* 第二种 使用箭头函数 */}
             <button onClick={this.btnClick2(3)}>按钮2</button>
             {/* 第三种 箭头函数 */}
-            <button onClick={e => {this.btnClick2(e)}}>按钮3</button>
+            <button onClick={e => {this.btnClick3(e)}}>按钮3</button>
           </div>
         )
       }

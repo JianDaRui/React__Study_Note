@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script src="../js/react.development.js"></script>
+  <script src="../js/react-dom.development.js"></script>
+  <script src="../js/babel.min.js"></script>
+  <div id="app"></div>
+
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor() {
+        super();
+        this.state = {}
+      }
+      render() {
+        const element = (
+          <div>红烧豆腐</div>
+        )
+        console.log(element)
+        return <element></element>
+      }
+    }
+    const message = <h2>Hello React</h2>
+    // React.createElement最终调用ReactElement
+    // ReactElement 会创建虚拟Dom
+    const message1 = React.createElement("h1", null, [message, "Hello World", App])
+    // ReactDOM.render映射到 #app
+
+    ReactDOM.render(message1, document.getElementById("app"))
+  </script>
+</body>
+</html>

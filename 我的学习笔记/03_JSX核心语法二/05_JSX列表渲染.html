@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script src="../js/react.development.js"></script>
+  <script src="../js/react-dom.development.js"></script>
+  <script src="../js/babel.min.js"></script>
+  <div id="app"></div>
+
+  <script type="text/babel">
+
+    class App extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          list: ["模仿游戏", "盗梦空间", "流浪地球"]
+        }
+      }
+      render() {
+        return (
+          <div>
+            <h2>Hello React</h2>
+            {
+              this.state.list.map(item => {
+                <p>{item}</p>
+              })
+            }
+          </div>
+        )
+      }
+    }
+    ReactDOM.render(<App />, document.getElementById("app"))
+  </script>
+
+</body>
+</html>
