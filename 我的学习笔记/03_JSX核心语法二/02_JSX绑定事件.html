@@ -36,12 +36,12 @@
         const { title, imgUrl } = this.state;
         return (
           <div>
-            {/* 第一种 DOM中绑定*/}
+            {/* 第一种 DOM中绑定或者在构造函数中绑定 */}
             <button onClick={this.btnClick.bind(this)}>按钮1</button>
-            {/* 第二种 构造函数中绑定*/}
-            <button onClick={this.btnClick}>按钮2</button>
-            {/* 第三种 箭头函数*/}
-            <button onClick={e => {this.btnClick2 (e)}}>按钮3</button>
+            {/* 第二种 使用箭头函数 */}
+            <button onClick={this.btnClick2(3)}>按钮2</button>
+            {/* 第三种 箭头函数 */}
+            <button onClick={e => {this.btnClick2(e)}}>按钮3</button>
           </div>
         )
       }

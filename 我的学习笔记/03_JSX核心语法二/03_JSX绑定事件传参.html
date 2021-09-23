@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script src="../js/react.development.js"></script>
+  <script src="../js/react-dom.development.js"></script>
+  <script src="../js/babel.min.js"></script>
+  <div id="app"></div>
+
+  <script type="text/babel">
+    function getSizeImg(imgUrl, size) {
+      return imgUrl + `?param=${size}x${size}`
+    }
+    class App extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          list: ["模仿游戏", "盗梦空间", "流浪地球"]
+        }
+        // 第一种
+        this.btnClick = this.btnClick.bind(this)
+      }
+      btnClick (e) {
+        console.log(e)
+      }
+      btnClick2 = (e, a) => {
+        console.log(e, a)
+      }
+      cilckLi = (a, b, c) => {
+        console.log(a, b, c, "点击li标签");
+      }
+      render() {
+        const { list } = this.state;
+        return (
+          <div>
+            <ul>
+              {
+                list.map((item, index) => {
+                  return (
+                      <li key={item} onClick={e => this.cilckLi(e, item, index)}>{item}</li>
+                    )
+                  }
+                )
+              }
+            </ul>
+            {/* 第一种 DOM中绑定或者在构造函数中绑定 */}
+            <button onClick={this.btnClick.bind(this)}>按钮1</button>
+            {/* 第二种 使用箭头函数 但是会立即执行*/}
+            <button onClick={this.btnClick2(3, 2)}>按钮2</button>
+            {/* 第三种 箭头函数 */}
+            <button onClick={e => {this.btnClick2(e, "amos")}}>按钮3</button>
+          </div>
+        )
+      }
+    }
+    ReactDOM.render(<App />, document.getElementById("app"))
+  </script>
+
+</body>
+</html>
