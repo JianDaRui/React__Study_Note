@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Children, Component } from 'react';
 
 class NavBar extends Component {
   constructor(props) {
@@ -6,11 +6,12 @@ class NavBar extends Component {
     this.state = {  }
   }
   render() { 
+    const { children } = this.props
     return (
       <div>
-        <div className="left"></div>
-        <div className="center"></div>
-        <div className="right"></div>
+        <div className="left">{children[0]}</div>
+        <div className="center">{children[1]}</div>
+        <div className="right">{children[2]}</div>
       </div>
     );
   }
