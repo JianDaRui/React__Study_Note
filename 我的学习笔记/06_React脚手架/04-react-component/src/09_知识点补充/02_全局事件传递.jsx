@@ -9,6 +9,7 @@ const eventBus = new EventEmitter();
 
 class Home extends PureComponent {
   componentDidMount() {
+    // 监听事件
     eventBus.addListener("sayHello", this.handleSayHelloListener);
   }
 
@@ -34,12 +35,13 @@ class Profile extends PureComponent {
     return (
       <div>
         Profile
-        <button onClick={e => this.emmitEvent()}>点击了profile按钮</button>
+        <button onClick={e => this.emitEvent()}>点击了profile按钮</button>
       </div>
     )
   }
 
-  emmitEvent() {
+  emitEvent() {
+    // 触发事件
     eventBus.emit("sayHello", 123, "Hello Home");
   }
 }
