@@ -1,5 +1,6 @@
 import React, { PureComponent, StrictMode } from 'react';
 
+// StrictMode只会对自己的子组件开启严格模式的校验
 class Home extends PureComponent {
   constructor(props) {
     super(props);
