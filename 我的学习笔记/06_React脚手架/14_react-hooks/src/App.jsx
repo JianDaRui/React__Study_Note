@@ -29,11 +29,21 @@ class App extends Component {
         <CancelDemo></CancelDemo> */}
 
         {/* 4.useContext */}
-      <UserContext.Provider value={{name: "why", age: 18}}>
+      {/* <UserContext.Provider value={{name: "why", age: 18}}>
         <ThemeContext.Provider value={{fontSize: "30px", color: "red"}}>
           <ContextHookDemo/>
         </ThemeContext.Provider>
-      </UserContext.Provider>
+      </UserContext.Provider> */}
+
+      {/* 5.useReducer */}
+      {/* <Home/>
+      <Profile/> */}
+
+      {/* 6.useCallback */}
+      {/* <CallbackHookDemo01/> */}
+      {/* <CallbackHookDemo02/> */}
+
+      
       </div>
     );
   }
