@@ -17,6 +17,7 @@ export default function ComplexHookState() {
   }
 
   function incrementAgeWithIndex(index) {
+    // 正确做法
     const newStudents = [...students];
     newStudents[index].age += 1;
     setStudents(newStudents);
