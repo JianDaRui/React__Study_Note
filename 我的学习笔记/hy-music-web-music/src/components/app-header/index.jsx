@@ -6,7 +6,7 @@ export default memo(function AppHeader(props) {
     <div>
       <NavLink to="discover">发现音乐</NavLink>
       <NavLink to="mime">我的音乐</NavLink>
-      <NavLink to="friends">我的好友</NavLink>
+      <NavLink to="friends">朋友</NavLink>
     </div>
   )
 })

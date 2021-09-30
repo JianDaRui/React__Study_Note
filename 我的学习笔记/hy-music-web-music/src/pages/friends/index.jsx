@@ -2,6 +2,8 @@ import React, { memo } from 'react'
 
 export default memo(function HYFriends(params) {
   return (
-    <div>Friends</div>
+    <div>
+      <h1>Friends</h1>
+    </div>
   )
 })
