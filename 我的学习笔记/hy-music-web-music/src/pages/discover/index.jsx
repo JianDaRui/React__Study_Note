@@ -11,17 +11,17 @@ import {
 export default memo(function HYDiscover(props) {
   const { route } = props
 
-  useEffect(() => {
-    request({
-      url: "/banner"
-    }).then(res => {
-      console.log(res);
+  // useEffect(() => {
+  //   request({
+  //     url: "/banner"
+  //   }).then(res => {
+  //     console.log(res);
 
-    })
-    return () => {
+  //   })
+  //   return () => {
       
-    }
-  }, [])
+  //   }
+  // }, [])
   return (
     <DiscoverWrapper>
       <div className="top">
