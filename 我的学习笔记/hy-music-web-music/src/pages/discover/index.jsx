@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 import { dicoverMenu } from '../../common/local-data'
@@ -16,7 +16,7 @@ export default memo(function HYDiscover(props) {
       url: "/banner"
     }).then(res => {
       console.log(res);
-      
+
     })
     return () => {
       
