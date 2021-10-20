@@ -1,7 +1,15 @@
 import React, { memo } from 'react'
 
-import { RecommendWrapper } from './style'
+import { 
+  RecommendWrapper,
+  RecommendLeft,
+  RecommendRight,
+  Content
+} from './style'
 import HYTopBanner from './c-cpns/top-banner'
+import HYHotRecommend from './c-cpns/hot-recommend'
+import HYNewAlbum from './c-cpns/new-album'
+import HYRecommendRanking from './c-cpns/ranking'
 
 function HYRecommend(props) {
   
@@ -9,6 +17,15 @@ function HYRecommend(props) {
   return (
     <RecommendWrapper>
       <HYTopBanner></HYTopBanner> 
+      <Content>
+        <RecommendLeft>
+          <HYHotRecommend></HYHotRecommend>
+          <HYNewAlbum></HYNewAlbum>
+          <HYRecommendRanking></HYRecommendRanking>
+        </RecommendLeft>
+        <RecommendRight></RecommendRight>
+      </Content>
+      
     </RecommendWrapper>
   )
 }
