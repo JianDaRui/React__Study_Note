@@ -7,6 +7,7 @@ export const RecommendWrapper = styled.div`
 export const Content = styled.div`
   background-color: #fff;
   display: flex;
+  justify-content: center;
 `
 
 export const RecommendLeft = styled.div`
