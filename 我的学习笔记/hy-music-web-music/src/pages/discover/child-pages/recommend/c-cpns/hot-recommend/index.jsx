@@ -1,38 +1,36 @@
-import React, { memo, useEffect, useSelector } from 'react'
-import { shallowEqual, useDispatch } from 'react-redux'
-import HYThemeHeader from '@/components/theme-header'
-import { HOT_RECOMMEND_LIMIT } from '@/common/contants'
+import React, { memo, useEffect } from 'react';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+
+import { HOT_RECOMMEND_LIMIT } from '@/common/contants';
+
+import HYThemeHeaderRCM from '@/components/theme-header';
+import HYSongsCover from '@/components/songs-cover';
 import {
   HotRecommendWrapper
-} from './style'
-import { getHotRecommendAction } from '../../store/actionCreators'
-export default memo(function HYHOtRecommend() {
+} from './style';
+import { getHotRecommendAction } from '../../store/actionCreators';
+
+export default memo(function HYHotRecommend() {
+  // state
 
   // redux hooks
   const { hotRecommends } = useSelector(state => ({
     hotRecommends: state.getIn(["recommend", "hotRecommends"])
   }), shallowEqual);
-  
-  // redux hooks
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  // 其他hooks
+  // other hooks
   useEffect(() => {
-    dispatch(getHotRecommendAction(HOT_RECOMMEND_LIMIT))
-    return () => {
-    
-    }
-  }, [dispatch])
+    dispatch(getHotRecommendAction(HOT_RECOMMEND_LIMIT));
+  }, [dispatch]);
 
   return (
     <HotRecommendWrapper>
-      <HYThemeHeader title="热门推荐" keywords={["摇滚", "电子", "华语", "流行", "民谣"]}>sdfdsf</HYThemeHeader>
-      <div>
+      <HYThemeHeaderRCM title="热门推荐" keywords={["华语", "流行", "民谣", "摇滚", "电子"]} />
+      <div className="recommend-list">
         {
           hotRecommends.map((item, index) => {
-            return (
-              <div>{item.name}</div>
-            )
+            return <HYSongsCover key={item.id} info={item}/>
           })
         }
       </div>
