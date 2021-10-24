@@ -1,15 +1,29 @@
-import { Redirect } from 'react-router-dom';
-import HYDiscover from '@/pages/discover/index';
-import HYAlbum from '@/pages/discover/child-pages/album'
-import HYArtist from '@/pages/discover/child-pages/artist'
-import HYRecommend from '@/pages/discover/child-pages/recommend'
-import HYSongs from '@/pages/discover/child-pages/songs'
-import HYDjradio from '@/pages/discover/child-pages/djradio'
-import HYRanking from '@/pages/discover/child-pages/ranking'
+import React from 'react';
+import { Redirect } from "react-router-dom";
 
-import HYFriends from '@/pages/friends/index';
-import HYPlayer from '@/pages/player/index';
-import HYMime from '@/pages/mime/index';
+const HYDiscover = React.lazy(() => import("@/pages/discover"));
+const HYRecommend = React.lazy(_ => import("../pages/discover/c-pages/recommend"));
+const HYRanking = React.lazy(_ => import("../pages/discover/c-pages/ranking"));
+const HYSongs = React.lazy(_ => import("../pages/discover/c-pages/songs"));
+const HYDjradio = React.lazy(_ => import("../pages/discover/c-pages/djradio"));
+const HYArtist = React.lazy(_ => import("../pages/discover/c-pages/artist"));
+const HYAlbum = React.lazy(_ => import("../pages/discover/c-pages/album"));
+const HYPlayer = React.lazy(_ => import("../pages/player"));
+
+const HYFriend = React.lazy(_ => import("../pages/friend"));
+const HYMine = React.lazy(_ => import("../pages/mine"));
+
+// import HYDiscover from '@/pages/discover/index';
+// import HYAlbum from '@/pages/discover/child-pages/album'
+// import HYArtist from '@/pages/discover/child-pages/artist'
+// import HYRecommend from '@/pages/discover/child-pages/recommend'
+// import HYSongs from '@/pages/discover/child-pages/songs'
+// import HYDjradio from '@/pages/discover/child-pages/djradio'
+// import HYRanking from '@/pages/discover/child-pages/ranking'
+
+// import HYFriends from '@/pages/friends/index';
+// import HYPlayer from '@/pages/player/index';
+// import HYMime from '@/pages/mime/index';
 
 const routes = [
   {
