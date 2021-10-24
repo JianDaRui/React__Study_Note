@@ -8,7 +8,7 @@ import store from './store'
 import AppFooter from './components/app-footer'
 import AppHeader from './components/app-header'
 import routes from './route/index'
-import HYAppPlayBar from './pages/player'
+import HYAppPlayBar from './pages/player/app-play-bar'
 
 export default memo(function App() {
   return (
