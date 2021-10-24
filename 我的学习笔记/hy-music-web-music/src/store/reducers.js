@@ -1,9 +1,11 @@
-import { combineReducers } from 'redux-immutable'
-import { reducer as RecommendReducer } from '@/pages/discover/child-pages/recommend/store'
-import { Map } from 'immutable'
+import { combineReducers } from 'redux-immutable';
+
+import { reducer as recommendReducer } from '../pages/discover/child-pages/recommend/store';
+import { reducer as playerReducer } from '../pages/player/store';
 
 const cReducer = combineReducers({
-  recommend: RecommendReducer
-})
+  recommend: recommendReducer,
+  player: playerReducer
+});
 
 export default cReducer;
