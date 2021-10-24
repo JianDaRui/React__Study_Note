@@ -108,6 +108,7 @@ export default memo(function HYAppPlayerBar() {
     dispatch(changeCurrentIndexAndSongAction(tag));
   }
 
+  // 歌曲结束
   const handleMusicEnded = () => {
     if (sequence === 2) { // 单曲循环
       audioRef.current.currentTime = 0;
@@ -117,13 +118,14 @@ export default memo(function HYAppPlayerBar() {
     }
   }
 
+  // 滑块发生变化
   const sliderChange = useCallback((value) => {
     setIsChanging(true);
     const currentTime = value / 100 * duration;
     setCurrentTime(currentTime);
     setProgress(value);
   }, [duration]);
-
+  // 发生变化之后
   const sliderAfterChange = useCallback((value) => {
     const currentTime = value / 100 * duration / 1000;
     audioRef.current.currentTime = currentTime;
